@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{REQUEST_FILE} -f
+
+RewriteCond ^admin\/([^\/\.]{1,})\/([\d]+)\/?$ admin_$1.php?id=$2[QSA,L]
+RewriteCond ^admin\/([^\/\.]{1,})\/?$ admin.php?action=$1[QSA,L]
+
+RewriteRule ^(.*)\/?$  $1.php [QSA,PT,L]
+
+</IfModule>
